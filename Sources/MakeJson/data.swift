@@ -6,4 +6,11 @@ let urls = [
     "https://mstdn.kemono-friends.info",
     "https://pokemon.mastportal.info",
     "https://pawoo.net",
+    "http://mastodon.social",
+    "https://social.vivaldi.net",
+    "https://akamdon.com",
+    "https://mastodon-japan.net",
+    "https://mofu.kemo.no",
+    "https://otadon.com",
+    "https://vocalodon.net"
 ]

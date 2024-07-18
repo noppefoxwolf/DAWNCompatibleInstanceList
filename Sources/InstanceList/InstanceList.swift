@@ -1,6 +1,6 @@
 import Foundation
 
-public actor InstanceList {
+public struct InstanceList {
     let urls: [URL]
     
     public init() throws {
