@@ -12,5 +12,6 @@ let urls = [
     "https://mastodon-japan.net",
     "https://mofu.kemo.no",
     "https://otadon.com",
-    "https://vocalodon.net"
+    "https://vocalodon.net",
+    "https://skybridge.fly.dev"
 ]
