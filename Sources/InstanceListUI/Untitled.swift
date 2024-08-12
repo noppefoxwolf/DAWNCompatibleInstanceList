@@ -16,7 +16,7 @@ struct InstanceSuggestionModifier: ViewModifier {
     var suggestions: [String] = []
     
     @State
-    var instanceList = try? InstanceList()
+    var instanceList = InstanceList()
     
     func body(content: Content) -> some View {
         content
@@ -42,11 +42,13 @@ struct InstanceSuggestionModifier: ViewModifier {
                 .opacity(suggestions.isEmpty ? 0 : 1)
             }
             .onChange(of: text) { newValue in
-                guard let instanceList else { return }
                 let urls = instanceList.search(newValue, maxLength: .max)
                 suggestions = urls
                     .filter({ $0.host()! != text })
                     .compactMap({ $0.host() })
+            }
+            .task {
+                try? await instanceList.load()
             }
     }
 }

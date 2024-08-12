@@ -1,9 +1,11 @@
 import Foundation
 
-public struct InstanceList {
-    let urls: [URL]
+public actor InstanceList {
+    var urls: [URL] = []
     
-    public init() throws {
+    public init() {}
+    
+    public func load() async throws {
         let url = Bundle.module.url(forResource: "data", withExtension: "json")!
         let data = try Data(contentsOf: url)
         let decoder = JSONDecoder()
