@@ -1,6 +1,7 @@
 import Foundation
 
-public actor InstanceList {
+@MainActor
+public final class InstanceList {
     var urls: [URL] = []
     
     public init() {}
