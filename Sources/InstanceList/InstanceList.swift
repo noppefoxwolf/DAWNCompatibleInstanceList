@@ -1,10 +1,13 @@
 import Foundation
 
 @MainActor
+@Observable
 public final class InstanceList {
+    
+    @ObservationIgnored
     var urls: [URL] = []
     
-    public init() {}
+    public nonisolated init() {}
     
     public func load() async throws {
         let url = Bundle.module.url(forResource: "data", withExtension: "json")!
@@ -14,9 +17,7 @@ public final class InstanceList {
     }
     
     public func search(_ query: String, maxLength: Int = 10) -> ArraySlice<URL> {
-        return urls
-            .filter({ queryFilter($0, query: query) })
-            .prefix(maxLength)
+        urls.filter({ queryFilter($0, query: query) }).prefix(maxLength)
     }
     
     func queryFilter(_ url: URL, query: String) -> Bool {
