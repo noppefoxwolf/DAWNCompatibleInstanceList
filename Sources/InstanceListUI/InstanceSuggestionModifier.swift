@@ -41,7 +41,7 @@ struct InstanceSuggestionModifier: ViewModifier {
                 .animation(.default, value: suggestions)
                 .opacity(suggestions.isEmpty ? 0 : 1)
             }
-            .onChange(of: text) { newValue in
+            .onChange(of: text) { _, newValue in
                 let urls = instanceList.search(newValue, maxLength: .max)
                 suggestions = urls
                     .filter({ $0.host()! != text })
